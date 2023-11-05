@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Лаба 9</title>
+  </head>
+  <body>
+    <script>
+
+      function run() {
+        let str = prompt('Enter camelCase', "textAlign");
+
+        alert('Result: '+toSnakeCase(str));
+      }
+
+      function toSnakeCase(str) {
+        let newStr = str;
+        let capitalIndex = str.search(/[A-Z]/g);
+
+        let limit = 50;
+        while(capitalIndex !== -1 && limit > 0){
+          if(capitalIndex > str.length){
+            break;
+          }
+          newStr = newStr.slice(0, capitalIndex) + '_' + newStr.charAt(capitalIndex).toLowerCase() + newStr.slice(capitalIndex + 1);
+          capitalIndex = newStr.search(/[A-Z]/g);
+          limit--;
+        }
+        return newStr;
+      }
+
+      run()
+    </script>
+  </body>
+</html>

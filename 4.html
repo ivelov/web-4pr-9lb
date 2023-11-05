@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Лаба 9</title>
+  </head>
+  <body>
+    <script>
+      function run() {
+        let str = prompt('Enter text with hex color', "aaa a aaa #000000 sd");
+
+        alert('Result: '+findHex(str));
+      }
+
+      function findHex(str) {
+        let hex = str.match(/\s#(([0-9]|[a-f]){3}|([0-9]|[a-f]){6})\s/gi);
+        return hex;
+      }
+
+      run()
+    </script>
+  </body>
+</html>

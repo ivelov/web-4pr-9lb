@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Лаба 9</title>
+  </head>
+  <body>
+    <script>
+
+      function run() {
+        let str = prompt("Enter snake_case", "text_align");
+
+        alert("Result: " + toCamelCase(str));
+      }
+
+      function toCamelCase(str) {
+        let newStr = str;
+        let hyphenIndex = str.search(/_/);
+
+        let limit = 50;
+        while (hyphenIndex !== -1 && limit > 0) {
+          if (hyphenIndex >= str.length) {
+            break;
+          }
+          newStr =
+            newStr.slice(0, hyphenIndex) +
+            newStr.charAt(hyphenIndex + 1).toUpperCase() +
+            newStr.slice(hyphenIndex + 2);
+          hyphenIndex = newStr.search(/_/);
+          limit--;
+        }
+        return newStr;
+      }
+
+      run();
+    </script>
+  </body>
+</html>
